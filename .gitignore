@@ -1,0 +1,9 @@
+node_modules
+.dist
+dist
+reports/videos
+reports/screenshots
+reports/cucumber-report.html
+.DS_Store
+*.log
+.env

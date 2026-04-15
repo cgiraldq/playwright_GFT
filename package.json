@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "@cucumber/cucumber": "^12.8.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^25.6.0",
+    "rimraf": "^6.1.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.2"
+  },
+  "scripts": {
+    "prepare": "npx playwright install",
+    "test": "cucumber-js",
+    "test:slow": "SLOW_MO=1000 cucumber-js",
+    "test:show": "HEADLESS=false cucumber-js",
+    "test:show:slow": "HEADLESS=false SLOW_MO=1000 cucumber-js",
+    "test:smoke": "cucumber-js --tags '@smoke'",
+    "test:smoke:slow": "SLOW_MO=1000 cucumber-js --tags '@smoke'",
+    "test:smoke:show": "HEADLESS=false cucumber-js --tags '@smoke'",
+    "test:smoke:show:slow": "HEADLESS=false SLOW_MO=1000 cucumber-js --tags '@smoke'",
+    "test:regression": "cucumber-js --tags '@regression'",
+    "test:regression:slow": "SLOW_MO=1000 cucumber-js --tags '@regression'",
+    "test:regression:show": "HEADLESS=false cucumber-js --tags '@regression'",
+    "test:regression:show:slow": "HEADLESS=false SLOW_MO=1000 cucumber-js --tags '@regression'",
+    "test:report": "open reports/cucumber-report.html",
+    "clean": "rimraf reports/screenshots/* reports/videos/*"
+  }
+}

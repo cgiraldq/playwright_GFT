@@ -102,7 +102,22 @@ Para abrir el reporte en macOS:
 npm run test:report
 ```
 
-## Notas
+## Escructura
+
+├── features/
+│ └── sauce.feature # Escenarios Gherkin (Happy Path, Login fallido, Data Driven)
+├── step_definitions/
+│ └── sauce.steps.ts # Implementación de los pasos (Playwright)
+├── support/
+│ ├── world.ts # Estado compartido (page, context) entre steps
+│ └── hooks.ts # Before/After: timeouts, lanzar navegador, video, screenshots
+├── reports/ # Artefactos generados (ignorados por git)
+│ ├── cucumber-report.html # Reporte HTML
+│ ├── videos/ # Grabación de cada escenario
+│ └── screenshots/ # Capturas solo si falla
+├── cucumber.js # Configuración de Cucumber (paths, formato, ts-node)
+├── tsconfig.json # TypeScript strict
+└── package.json # Dependencias y scripts
 
 - Los timeouts globales se configuran en `support/hooks.ts`.
 - El proyecto usa `@playwright/test` para el browser driver y `@cucumber/cucumber` para BDD.
